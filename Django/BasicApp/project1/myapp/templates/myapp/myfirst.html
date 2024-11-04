@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'myapp/CSS/myfirstcss.css' %}?v=1">
+</head>
+<body style="background-image: url('{% static 'myapp/images/beautiful-nature-pictures.jpg' %}');">
+    <h1>Hello World!</h1>
+    <p>Welcome to my first Django project!</p>
+</body>
+</html>
+
+{% endblock content %}

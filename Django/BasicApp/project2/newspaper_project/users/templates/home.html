@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content%}
+{% if user.is_authenticated %}
+    Hi {{ user.username }}!
+    <div >
+        <h1>Newspaper app</h1>
+        <p>A Newspaper website built with Django.</p>
+        <p>
+            <a href="{% url 'article_list' %}"role="button">View All Articles</a>
+        </p>
+    </div>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Log Out</button>
+    </form>
+
+
+{% else %}
+    <p> Your are not logged in </p>
+    <a href="{% url 'login' %}"> Log In</a>
+    <a href= "{% url 'signup' %}"> Sign Up</a>
+{% endif %}
+{% endblock content%}
